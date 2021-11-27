@@ -1,0 +1,327 @@
+
+Example-1
+ Here is a sample html file with a submit button. Now modify the style of the paragraph text through javascript code. 
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS DOM paragraph style</title>
+</head> 
+<body>
+<p id ='text'>JavaScript Exercises - w3resource</p> 
+<div>
+<button id="jsstyle"
+onclick="js_style()">Style</button>
+</div>
+</body>
+</html>
+
+JS
+
+function js_style() 
+{
+ text.style.fontSize = "19pt";
+ text.style.fontFamily = "Comic Sans MS";
+ text.style.color = "blue";
+}
+
+
+Example-2
+ Write a JavaScript function to get the values of First and Last name of the following form. 
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Return first and last name from a form - w3resource</title>
+</head><body>
+<form id="form1" onsubmit="getFormvalue()">
+First name: <input type="text" name="fname" value="David"><br>
+Last name: <input type="text" name="lname" value="Beckham"><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+
+JS
+
+function getFormvalue()
+{
+  var x=document.getElementById("form1");
+  for (var i=0;i<x.length;i++)
+  {
+   if (x.elements[i].value!='Submit')
+    {  
+      console.log(x.elements[i].value);
+     }  
+   }
+}
+
+Example-3
+Write a JavaScript program to set the background color of a paragraph. 
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Return first and last name from a form - w3resource</title>
+</head>
+<body>
+  <p id="paragraph">My name is Tugba!!</p>
+  <p id="p1">My surname is Cakir</p>
+</body>
+</html>
+
+JS
+
+let paragpraph = document.getElementById("paragraph");
+
+paragraph.style.background="rgb(255,0,0)";
+
+let paragraph1 =
+  document.querySelector("#p1");
+paragraph1.style.background= "rgb(255,255,0)";
+
+
+Example-4
+Here is a sample html file with a submit button. Write a JavaScript function 
+to get the value of the href, hreflang, rel, target, and type attributes of the specified link.
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+</head>
+<body>
+<p><a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://www.w3resource.com/">w3resource</a></p>
+<button onclick="getAttributes()">Click here to get attributes value</button>
+</body></html>
+
+JS
+
+function getAttributes(){
+  var href = document.getElementById("w3r").href;
+  var type = document.getElementById("w3r").type;
+  var rel  = document.getElementById("w3r").rel;
+  var target = document.getElementById("w3r").target;
+  var hreflang = document.getElementById("w3r").hreflang;
+  
+ console.log(`
+ href: ${href}
+ type: ${type}
+ rel : ${rel}
+ target: ${target}
+ hreflang: ${hreflang}
+ `);
+}
+
+Example-5
+Write a JavaScript function to add rows to a table
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Insert row in a table - w3resource</title>
+</head><body>
+<table id="my_table" border="1">
+<tr><td>Row1 cell1</td>
+<td>Row1 cell2</td></tr>
+<tr><td>Row2 cell1</td>
+<td>Row2 cell2</td></tr>
+</table><br>
+<input type="button" onclick="insert_Row()" value="Insert row"> 
+</body></html>
+
+
+JS
+
+function insert_Row(){
+  var newRow = document.getElementById("my_table").insertRow(0); 
+  var newCell1 = newRow.insertCell(0);
+  var newCell2 = newRow.insertCell(1);
+  newCell1.innerHTML="New Cell1";
+  newCell2.innerHTML="New Cell2";
+}
+
+
+Example-6
+ Write a JavaScript function that accept row, column, (to identify a particular cell) 
+ and a string to update the content of that cell.
+
+HTML
+
+!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Change the content of a cell</title>
+</head><body>
+<table id="myTable" border="1">
+<tr><td>Row1 cell1</td>
+<td>Row1 cell2</td></tr>
+<tr><td>Row2 cell1</td>
+<td>Row2 cell2</td></tr>
+<tr><td>Row3 cell1</td>
+<td>Row3 cell2</td></tr>
+</table><form>
+<input type="button" onclick="changeContent()" value="Change content">
+</form></body></html>
+
+JS
+
+function changeContent()
+{
+selectRow = window.prompt("Input the Row number(0,1,2)", "0"); //0: default
+selectCol = window.prompt("Input the Column number(0,1)","0");
+content = window.prompt("Input the Cell content");  
+var x=document.getElementById('myTable').rows[parseInt(selectRow,10)].cells;
+x[parseInt(selectCol,10)].innerHTML=content;
+}
+
+Example-7
+Write a JavaScript function that creates a table, accept row, column numbers from the user, 
+and input row-column number as content (e.g. Row-0 Column-0) of a cell.
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Change the content of a cell</title>
+<style type="text/css">
+body {margin: 30px;}
+</style>  
+</head><body>
+<table id="myTable" border="1">
+</table><form>
+<input type="button" onclick="createTable()" value="Create the table">
+</form></body></html>
+
+JS
+
+function createTable()
+{
+rn = window.prompt("Input number of rows", 1);
+cn = window.prompt("Input number of columns",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+   var x=document.getElementById('myTable').insertRow(r);
+   for(var c=0;c<parseInt(cn,10);c++)  
+    {
+     var y=  x.insertCell(c);
+     y.innerHTML="Row-"+r+" Column-"+c; 
+    }
+   }
+}
+
+Example-8
+ Write a JavaScript program to remove items from a dropdown list. Go to the editor
+Sample HTML file :
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<title>Remove items from a dropdown list</title>
+</head><body><form>
+<select id="colorSelect">
+<option>Red</option>
+<option>Green</option>
+<option>White</option>
+<option>Black</option>
+</select>
+<input type="button" onclick="removecolor()" value="Select and Remove">
+</form></body></html>
+
+
+JS
+
+function removecolor()
+{
+var x=document.getElementById("colorSelect");
+x.remove(x.selectedIndex);
+}
+
+Example-9
+Write a JavaScript program to count and display the items of a dropdown list, in an alert window.
+
+HTML
+
+<!DOCTYPE html>
+<html><head>
+<meta charset=utf-8 />
+<style type="text/css">
+body {margin: 30px;}
+</style>   
+<title>Count and display items of a dropdown list - w3resource</title>
+</head><body><form>
+Select your favorite Color :
+<select id="mySelect">
+<option>Red</option>
+<option>Green</option>
+<option>Blue</option>
+<option>White</option>
+</select>
+<input type="button" onclick="getOptions()" value="Count and Output all items">
+</form></body></html>
+
+
+JS
+
+function getOptions(){
+  var x = document.getElementById("mySelect");
+  var text = "Number of items: "
+  var length = document.getElementById("mySelect").length; 
+  text = text+ length;
+  for (i=0;i<x.length;i++)
+  {
+    text = text + "\n" + x.options[i].text;
+  }
+  alert(text);
+}
+
+Example-10
+Write a JavaScript program to get the width and height of the window (any time the window is resized).
+
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Window Size : height and width</title>
+</head>
+<!-- Resize the window (here output panel) and see the result !-->
+<body onload="getSize()" onresize="getSize()">
+<div id="wh"> 
+<!-- Place height and width size here! --> 
+</div>
+<body>
+</body>
+</html>
+
+
+
+JS
+
+function getSize()
+{
+var w = document.documentElement.clientWidth;
+var h = document.documentElement.clientHeight;
+        
+// put the result into a h1 tag
+ document.getElementById('wh').innerHTML = "<h1>Width: " + w + " â€¢ Height: " + h + "</h1>";
+}
+
+
